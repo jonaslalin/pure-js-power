@@ -1,10 +1,10 @@
-function getBreadcrumbs(site, urlTree, maxSize = 10) {
-  return Array.apply(null, Array(maxSize - 1)).reduce(
-    (res, _, i) => ({
-      ...res,
-      [`depth${i + 2}`]: res[`depth${i + 1}`] + '|' + (urlTree[i] || '')
+function getBreadcrumbs(a, b, c = 10, d = 'depth') {
+  return Array.apply(null, Array(c - 1)).reduce(
+    (e, _, f) => ({
+      ...e,
+      [`${d}${f + 2}`]: `${e[`${d}${f + 1}`]}|${b[f] || ''}`
     }),
-    { depth1: site }
+    { [`${d}1`]: a }
   );
 }
 
