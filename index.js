@@ -1,14 +1,1 @@
-function getBreadcrumbs(site, urlTree, maxSize = 10) {
-  const augmentedUrlTree = [site, ...urlTree];
-  return Array.apply(null, Array(maxSize)).reduce(
-    (res, _, i) => ({
-      ...res,
-      [`depth${i + 1}`]: Array.apply(null, Array(i + 1))
-        .map((__, j) => augmentedUrlTree[j] || '')
-        .join('|')
-    }),
-    {}
-  );
-}
-
-module.exports = getBreadcrumbs;
+module.exports=(a,b,c=10,d='depth')=>{e={[d+1]:a};for(f=1;f<c;f++)e[d+(f+1)]=e[d+f]+'|'+(b[f-1]||'');return e}
